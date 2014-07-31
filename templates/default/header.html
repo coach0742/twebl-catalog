@@ -1,0 +1,38 @@
+<div class="navbar navbar-inverse" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"> <span class="sr-only">Toggle navigation</span>
+ <span class="icon-bar"></span>
+ <span class="icon-bar"></span>
+ <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="{{=it.homeurl}}">The World's eBook Library</a>
+        </div>
+        <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <!--<li><a href="#" onclick='$.removeCookie("template"); window.location.reload(true); '>-->
+                <!-- <span class="glyphicon glyphicon-picture"></span>-->
+                <!--</a></li>-->
+                <li>
+                    <a href="http://www.twebl.info">	<span style="margin-left:5px" class="glyphicon glyphicon-info-sign"></span> Main Site</a>
+                </li>
+                <li>
+                    <a href="http://www.twebl.info/requests"> <span style="margin-left:5px" class="glyphicon glyphicon-book"></span> Request a Book</a>
+                </li>
+                <li>
+                    <a href="upload/index.html" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Upload a Book">	<span style="margin-left:5px" class="glyphicon glyphicon-open"></span> Upload a Book<span class="visible-xs-inline"></span>
+                    </a>
+                </li>
+            </ul>
+            <form id="searchForm" class="navbar-form navbar-right" role="search">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="{{=it.c.i18n.searchAlt}}" name="query">
+                </div>
+                <button type="submit" class="btn btn-default hidden-xs"><span class="glyphicon glyphicon-search"></span>
+                </button>
+            </form>
+        </div>
+        <!--/.nav-collapse -->
+    </div>
+    <!--/container-->
+</div>

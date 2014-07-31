@@ -1,0 +1,76 @@
+<head>
+  <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=auto, height=device-height, target-densitydpi=medium-dpi" />
+</head>
+<div class="container-fluid">
+{{? it.page == 13 || it.page == 16}}
+    {{? it.page == 13}}
+        {{#def.bookdetail}}
+    {{??}}
+        {{= it.fullhtml}}
+    {{?}}
+{{??}}
+<div class="page-header"
+  <h1 onclick="return false">{{=it.fullTitle}}</h1>
+</div>
+
+<div id="filter">
+    <ul>
+    </ul>
+</div>
+<div class="container-fluid">
+  <div class="row">
+  {{~it.entries:entry:i}}
+      {{? it.containsBook == 0}}
+          <div class="col-lg-2 col-md-3 col-sm-6 col-xs-6">
+              <div class="panel panel-default" style="height: 70px;">
+                  <div class="panel-heading">
+                      <h2 class="panel-title">
+                          <a href="{{=entry.navlink}}" style="display: block;">{{=htmlspecialchars (entry.title)}}</a>
+                      </h2>
+                  </div>
+                  <div class="panel-body">
+                      <span class="badge bottomright">{{=entry.number}}</span>
+                  </div>
+              </div>
+          </div>
+      {{??}}
+          <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6 books">
+          <div class="panel panel-default" style="height: 300px;">
+            <div class="panel-heading">
+              <h2 class="panel-title"><a href="{{=str_format (it.c.url.detailUrl, entry.book.id, it.databaseId)}}">{{=htmlspecialchars (entry.title)}}</a></h2>
+            </div>
+            <div class="panel-body">
+              <div class="cover-image">
+              {{? entry.book.hasCover == 1}}
+                  <div class="text-center">
+                  <a href="{{=str_format (it.c.url.detailUrl, entry.book.id, it.databaseId)}}">
+                      <img src="{{=str_format (it.c.url.thumbnailUrl, entry.book.id, it.databaseId)}}" alt="{{=it.c.i18n.coverAlt}}" />
+                  </a>
+                  </div>
+              {{?}}
+              </div>
+              <span class="glyphicon glyphicon-user"></span> <span class="sa">{{=htmlspecialchars (entry.book.authorsName)}}</span>
+              <!--{{? entry.book.tagsName != ""}}<br /><span class="glyphicon glyphicon-tag hidden-lg hidden-sm hidden-md hidden-xs"></span> <span class="se hidden-xs hidden-sm hidden-md hidden-lg">{{=htmlspecialchars (entry.book.tagsName)}}</span>{{?}}
+-->
+              {{? entry.book.seriesName != ""}}<br /><span class="glyphicon glyphicon-list"></span> <span class="ss">{{=htmlspecialchars (entry.book.seriesName)}} ({{=entry.book.seriesIndex}})</span>{{?}}
+              <div class="text-center bottomright">
+              {{~entry.book.preferedData:data:j}}
+                  <a href="{{=data.url}}" class="btn btn-primary btn-sm" role="button">{{=data.name}}</a>
+              {{~}}
+              </div>
+            </div>
+          </div>
+          </div>
+      {{?}}
+  {{~}}
+  </div>
+</div>
+{{?}}
+{{? it.isPaginated == 1}}
+    <ul class="pager">
+        <li class="{{? it.prevLink == ""}}disabled{{?}}"><a id="prevLink" href="{{=it.prevLink}}"><span class="glyphicon glyphicon-chevron-left"></span>{{=it.c.i18n.previousAlt}}</a></li>
+        <li> {{=it.currentPage}} / {{=it.maxPage}} </li>
+        <li class="{{? it.nextLink == ""}}disabled{{?}}"><a id="nextLink" href="{{=it.nextLink}}">{{=it.c.i18n.nextAlt}}<span class="glyphicon glyphicon-chevron-right"></span></a></li>
+    </ul>
+{{?}}
+</div>
