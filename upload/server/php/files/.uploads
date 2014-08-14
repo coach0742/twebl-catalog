@@ -1,0 +1,5 @@
+This is where uploaded files will be stored. 
+You can have Calibre look in this folder for books automatically by going to Preferences, Adding Books, and going to the second tab
+
+Make sure that when running this server on Linux, that you have the correct permission on this folder.
+Otherwise uploaded files will be rejected.
