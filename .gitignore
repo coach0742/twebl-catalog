@@ -6,4 +6,4 @@ test/text.atom
 cops.zip
 cops.sublime-*
 config_local.php
-uploads/server/php/*
+upload/server/php/*
